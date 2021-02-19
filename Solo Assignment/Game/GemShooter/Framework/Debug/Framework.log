@@ -1,0 +1,12 @@
+﻿  game.cpp
+c:\users\adria\onedrive\desktop\game programming\students\adriaan.bosch\solo assignment\game\gemshooter\framework\game.cpp(70): warning C4930: 'std::vector<GameObject *,std::allocator<_Ty>> objectlist(void)': prototyped function not called (was a variable definition intended?)
+          with
+          [
+              _Ty=GameObject *
+          ]
+c:\users\adria\onedrive\desktop\game programming\students\adriaan.bosch\solo assignment\game\gemshooter\framework\game.cpp(71): warning C4930: 'std::vector<GameObject *,std::allocator<_Ty>> shootingList(void)': prototyped function not called (was a variable definition intended?)
+          with
+          [
+              _Ty=GameObject *
+          ]
+  Framework.vcxproj -> C:\Users\Adria\OneDrive\Desktop\Game Programming\students\adriaan.bosch\Solo Assignment\Game\GemShooter\Debug\Framework.exe

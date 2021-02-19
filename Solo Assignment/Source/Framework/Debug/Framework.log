@@ -1,0 +1,31 @@
+﻿  backbuffer.cpp
+  clay.cpp
+  dynamite.cpp
+  game.cpp
+c:\users\adria\onedrive\desktop\game programming\students\adriaan.bosch\solo assignment\source\framework\game.cpp(85): warning C4930: 'std::vector<Gem *,std::allocator<_Ty>> objectlist(void)': prototyped function not called (was a variable definition intended?)
+          with
+          [
+              _Ty=Gem *
+          ]
+c:\users\adria\onedrive\desktop\game programming\students\adriaan.bosch\solo assignment\source\framework\game.cpp(268): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\adria\onedrive\desktop\game programming\students\adriaan.bosch\solo assignment\source\framework\game.cpp(347): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\adria\onedrive\desktop\game programming\students\adriaan.bosch\solo assignment\source\framework\game.cpp(393): warning C4018: '<': signed/unsigned mismatch
+c:\users\adria\onedrive\desktop\game programming\students\adriaan.bosch\solo assignment\source\framework\game.cpp(405): warning C4018: '<': signed/unsigned mismatch
+c:\users\adria\onedrive\desktop\game programming\students\adriaan.bosch\solo assignment\source\framework\game.cpp(460): warning C4018: '<': signed/unsigned mismatch
+  gameobject.cpp
+  gem.cpp
+  inputhandler.cpp
+  logmanager.cpp
+  main.cpp
+  pickaxe.cpp
+  rock.cpp
+  scorces.cpp
+  settings.cpp
+  special.cpp
+  sprite.cpp
+c:\users\adria\onedrive\desktop\game programming\students\adriaan.bosch\solo assignment\source\framework\sprite.cpp(9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  texture.cpp
+  texturemanager.cpp
+  Generating Code...
+c:\users\adria\onedrive\desktop\game programming\students\adriaan.bosch\solo assignment\source\framework\gem.cpp(23): warning C4715: 'Gem::IsSameColour': not all control paths return a value
+  Framework.vcxproj -> C:\Users\Adria\OneDrive\Desktop\Game Programming\students\adriaan.bosch\Solo Assignment\Source\Debug\Framework.exe

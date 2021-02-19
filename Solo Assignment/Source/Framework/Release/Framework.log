@@ -1,0 +1,44 @@
+﻿  game.cpp
+c:\users\adria\onedrive\desktop\game programming\students\adriaan.bosch\solo assignment\source\framework\game.cpp(85): warning C4930: 'std::vector<Gem *,std::allocator<_Ty>> objectlist(void)': prototyped function not called (was a variable definition intended?)
+          with
+          [
+              _Ty=Gem *
+          ]
+c:\users\adria\onedrive\desktop\game programming\students\adriaan.bosch\solo assignment\source\framework\game.cpp(268): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\adria\onedrive\desktop\game programming\students\adriaan.bosch\solo assignment\source\framework\game.cpp(347): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\adria\onedrive\desktop\game programming\students\adriaan.bosch\solo assignment\source\framework\game.cpp(393): warning C4018: '<': signed/unsigned mismatch
+c:\users\adria\onedrive\desktop\game programming\students\adriaan.bosch\solo assignment\source\framework\game.cpp(405): warning C4018: '<': signed/unsigned mismatch
+c:\users\adria\onedrive\desktop\game programming\students\adriaan.bosch\solo assignment\source\framework\game.cpp(460): warning C4018: '<': signed/unsigned mismatch
+backbuffer.obj : error LNK2001: unresolved external symbol _SDL_SetWindowSize
+backbuffer.obj : error LNK2001: unresolved external symbol _SDL_RenderClear
+backbuffer.obj : error LNK2001: unresolved external symbol _SDL_DestroyRenderer
+backbuffer.obj : error LNK2001: unresolved external symbol _SDL_Init
+backbuffer.obj : error LNK2001: unresolved external symbol _SDL_DestroyWindow
+backbuffer.obj : error LNK2001: unresolved external symbol _SDL_GetError
+backbuffer.obj : error LNK2001: unresolved external symbol _SDL_SetHint
+backbuffer.obj : error LNK2001: unresolved external symbol _SDL_Quit
+backbuffer.obj : error LNK2001: unresolved external symbol _SDL_Delay
+backbuffer.obj : error LNK2001: unresolved external symbol _IMG_Init
+backbuffer.obj : error LNK2001: unresolved external symbol _SDL_RenderCopyEx
+backbuffer.obj : error LNK2001: unresolved external symbol _SDL_RenderDrawLine
+backbuffer.obj : error LNK2001: unresolved external symbol _SDL_CreateRenderer
+backbuffer.obj : error LNK2001: unresolved external symbol _SDL_RenderPresent
+backbuffer.obj : error LNK2001: unresolved external symbol _SDL_RenderFillRect
+backbuffer.obj : error LNK2001: unresolved external symbol _SDL_CreateWindow
+backbuffer.obj : error LNK2001: unresolved external symbol _SDL_SetWindowFullscreen
+backbuffer.obj : error LNK2001: unresolved external symbol _SDL_SetRenderDrawColor
+backbuffer.obj : error LNK2001: unresolved external symbol _IMG_Quit
+game.obj : error LNK2001: unresolved external symbol _SDL_GetPerformanceCounter
+game.obj : error LNK2001: unresolved external symbol _SDL_GetPerformanceFrequency
+inputhandler.obj : error LNK2001: unresolved external symbol _SDL_JoystickClose
+inputhandler.obj : error LNK2001: unresolved external symbol _SDL_NumJoysticks
+inputhandler.obj : error LNK2001: unresolved external symbol _SDL_JoystickOpen
+inputhandler.obj : error LNK2001: unresolved external symbol _SDL_PollEvent
+texture.obj : error LNK2001: unresolved external symbol _SDL_DestroyTexture
+texture.obj : error LNK2001: unresolved external symbol _SDL_QueryTexture
+texture.obj : error LNK2001: unresolved external symbol _SDL_SetTextureBlendMode
+texture.obj : error LNK2001: unresolved external symbol _SDL_FreeSurface
+texture.obj : error LNK2001: unresolved external symbol _IMG_Load
+texture.obj : error LNK2001: unresolved external symbol _SDL_CreateTextureFromSurface
+MSVCRT.lib(exe_winmain.obj) : error LNK2001: unresolved external symbol _WinMain@16
+C:\Users\Adria\OneDrive\Desktop\Game Programming\students\adriaan.bosch\Solo Assignment\Source\Release\Framework.exe : fatal error LNK1120: 32 unresolved externals

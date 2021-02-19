@@ -1,0 +1,1169 @@
+Revision: 695
+Author: wqr8015
+Date: Wednesday, 7 October 2020 3:43:52 PM
+Message:
+Added post Mortem, Tried to get release .exe, no luck
+----
+Deleted : /students/adriaan.bosch/Solo Assignment/Docs/Post Mortem.docx
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.Build.CppClean.log
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.log
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Release/Framework.log
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/clay.png
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/deadzone.png
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/gemblue.png
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/gemgreen.png
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/gempurple.png
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/gemred.png
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/gemyellow.png
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/rock.png
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/wall.png
+
+Revision: 672
+Author: wqr8015
+Date: Wednesday, 7 October 2020 11:17:19 AM
+Message:
+Attempted to fix some bugs, managed to fix one, clean the code a little, needs much more work
+----
+Added : /students/adriaan.bosch/Solo Assignment/Docs/Post Mortem.docx
+Added : /students/adriaan.bosch/Solo Assignment/Docs/Readme.txt
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.log
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.h
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/gameobject.cpp
+
+Revision: 638
+Author: wqr8015
+Date: Tuesday, 6 October 2020 2:21:08 PM
+Message:
+Fixed splash screen,
+Fixed Menu and selections,
+Pause menu needs some work, and when losing the game and being pushed back to the menu screen, a bug stopping a new game from being started.
+seems the InputHandler is causing switch gems to switch multiple times per single button push, must find a way to fix it.
+work still needs to do on the gem shooting calculations 
+----
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.log
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.h
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/inputhandler.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/sprite.cpp
+
+Revision: 623
+Author: wqr8015
+Date: Monday, 5 October 2020 6:50:12 PM
+Message:
+Worked on a better system for the grid, seems to work well but minor bugs with shot gems overlapping, more work is needed on the menu and pause menu, having trouble getting them to work while not freezing the game from input to choose options
+----
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.log
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.h
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/gameobject.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/gameobject.h
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/inputhandler.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/sprite.cpp
+
+Revision: 616
+Author: wqr8015
+Date: Monday, 5 October 2020 3:09:55 PM
+Message:
+Added splash AUT logo screen before game, working on the menu and how the user controls it.
+Tried to implement test via SDK TTF, but has issues, because i am low on time this will be left till last
+----
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.Build.CppClean.log
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.log
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Framework.vcxproj
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/backbuffer.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/backbuffer.h
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.h
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/inputhandler.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/logmanager.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/logmanager.h
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/main.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/sprite.cpp
+
+Revision: 584
+Author: wqr8015
+Date: Friday, 2 October 2020 7:04:24 PM
+Message:
+Added a method so the player can lose the game,
+Added two methods so the roof and all gems move closer to the deadzone / where the player shoots. if a gem gets to close player loses game
+Added a emptyspot method to try figure out empty spots where shot gems and "click" into very close to where they have been shot to fit in the hexGrids
+
+----
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.log
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.h
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/gameobject.cpp
+
+Revision: 556
+Author: wqr8015
+Date: Friday, 2 October 2020 12:52:38 PM
+Message:
+Should have done this at the start, but i created a hexgridX & Y vectors.
+every second row is off by 30 so the parts fit together in a hex shape.
+All gems are centered and positioned on this points on the hexgrids.
+
+When fired shot gems will detect collision and now find the closed X & Y hexgrid points that made sense to be positioned into. Then check colours match etc.
+
+I have also managed to add some right angle triangle calculations so the gems know how much x movement is required to hit where the aimline is. Problem is i cannot seem to get the calculations correct. brackets etc are not solving. more work is needed.
+
+Gem switching is completely fixed and only one shot can be fired at a time till it collides and becomes a normal gem.
+
+This was a big update alot of work over 24 hours, should have split this into multiple commits 
+----
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.log
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.h
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/gameobject.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/gameobject.h
+
+Revision: 505
+Author: wqr8015
+Date: Thursday, 1 October 2020 11:28:44 AM
+Message:
+Did some work on the gem switching, and improved it.
+A major break through was with the help of Steffan i forgot change the draw method for backbuffer and use SDL_RenderCopyEx instead of SDL_RenderCopy. This has now allowed for my aim line to work which will allow the player to shoot in a direction they choose. This requires a little bit of maths which i will work on next
+----
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.log
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/backbuffer.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.h
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/gameobject.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/sprite.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/sprite.h
+
+Revision: 484
+Author: wqr8015
+Date: Tuesday, 29 September 2020 4:24:16 PM
+Message:
+Spent a while trying to work on the aiming line, seems i cannot get it to move, despite changing the angle of the sprite and updating,
+I changed some objects names to make the code more readable and worked on fixed the switch gem mechanic.
+In the process broke the shooting gem, which i will get around to fixing. I need the aimline to work before i can move on with the game.
+----
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.log
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.h
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/gameobject.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/gameobject.h
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/gem.cpp
+
+Revision: 461
+Author: wqr8015
+Date: Sunday, 27 September 2020 10:33:27 PM
+Message:
+managed to refine the collision methods, so they are all correct always. Started working on stopping the shooting gem if it hits another gem thats not the same colour. it will just sit there and become a normal gem part of the grid of gems.
+Having trouble transfering it the gem from the shootinglist to the grid list as it doesnt seem to carry the x and y values. i will work on it tomorrow as assigning it the values also doesnt seem to work.
+----
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.log
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Framework.vcxproj
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Framework.vcxproj.filters
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.h
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/gameobject.cpp
+
+Revision: 459
+Author: wqr8015
+Date: Sunday, 27 September 2020 8:02:09 PM
+Message:
+Updated the collision loop, which caused a vector subset out of range error, simplified the loops and added some failsafes to get it working correctly. Both position and colour comparison loops work correctly now, may still need to work on deleting the objects on collision
+----
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.log
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.h
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/gameobject.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/gameobject.h
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/gem.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/gem.h
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/shootGem.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/shootGem.h
+
+Revision: 442
+Author: wqr8015
+Date: Saturday, 26 September 2020 12:58:21 PM
+Message:
+Worked on collision detection, and cleaned up some of the could with a for loop method for the main object list
+----
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/Framework.ilk
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/Framework.pdb
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/vc141.idb
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/vc141.pdb
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.h
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/gameobject.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/gameobject.h
+
+Revision: 430
+Author: wqr8015
+Date: Friday, 25 September 2020 5:21:50 PM
+Message:
+further cleanup
+----
+Deleted : /students/adriaan.bosch/Solo Assignment/Source/Debug/Framework.ilk
+Deleted : /students/adriaan.bosch/Solo Assignment/Source/Debug/Framework.pdb
+Deleted : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/vc141.idb
+Deleted : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/vc141.pdb
+Deleted : /students/adriaan.bosch/Solo Assignment/Source/Framework/Framework.vcxproj.user
+Deleted : /students/adriaan.bosch/Solo Assignment/Source/Framework/Release/vc141.pdb
+
+Revision: 429
+Author: wqr8015
+Date: Friday, 25 September 2020 5:19:07 PM
+Message:
+cleaning up
+----
+Deleted : /students/adriaan.bosch/Solo Assignment/Source/.vs
+Deleted : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.tlog
+Deleted : /students/adriaan.bosch/Solo Assignment/Source/Framework/Release/Framework.tlog
+
+Revision: 399
+Author: wqr8015
+Date: Thursday, 24 September 2020 8:19:30 PM
+Message:
+Managed to get the gem list drawing in the correct place, seems i was drawing it out of visual range.
+Adjusted the size of the gems, which required a remake of their PNG images for sprites.
+Changed the listing x and y positions of each gem object automatically so they are now in a hexagon like cluster.
+a breakthrough of work, hope i can continue
+----
+Modified : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/.suo
+Modified : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/Browse.VC.db
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch/AutoPCH/1416c75a3ef7af92
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch/AutoPCH/1416c75a3ef7af92/GAME.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch/AutoPCH/7e6a8ad72d3d203b
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch/AutoPCH/7e6a8ad72d3d203b/DYNAMITE.ipch
+Modified : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch/AutoPCH/7e9743c7e91777cf/BACKBUFFER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch/AutoPCH/80b9d56cd0ca8abf
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch/AutoPCH/80b9d56cd0ca8abf/GAMEOBJECT.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch/AutoPCH/ef29088e8a89c655
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch/AutoPCH/ef29088e8a89c655/SPRITE.ipch
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Debug/Framework.ilk
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Debug/Framework.pdb
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/clay.png
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/deadzone.png
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/gemblue.png
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/gemgreen.png
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/gempurple.png
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/gemred.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/gemtest.png
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/gemyellow.png
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/rock.png
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/wall.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/wallplate.png
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.log
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.tlog/CL.command.1.tlog
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.tlog/CL.read.1.tlog
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.tlog/CL.write.1.tlog
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.tlog/link.read.1.tlog
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.tlog/link.write.1.tlog
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/vc141.idb
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/vc141.pdb
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.cpp
+Modified : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.h
+
+Revision: 381
+Author: wqr8015
+Date: Wednesday, 23 September 2020 4:39:28 PM
+Message:
+Had to move more files to fit the assignment setup, 
+nothing like clicking 400 tick boxes
+----
+Added : /students/adriaan.bosch/Solo Assignment/Game/Framework.ilk
+Added : /students/adriaan.bosch/Solo Assignment/Game/Framework.pdb
+Added : /students/adriaan.bosch/Solo Assignment/Game/SDL2.dll
+Added : /students/adriaan.bosch/Solo Assignment/Game/SDL2_image.dll
+Added : /students/adriaan.bosch/Solo Assignment/Game/assets
+Added : /students/adriaan.bosch/Solo Assignment/Game/assets/aimline.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/assets/alienenemy.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/assets/bubblepop.sfs
+Added : /students/adriaan.bosch/Solo Assignment/Game/assets/bubbleswitch.sfs
+Added : /students/adriaan.bosch/Solo Assignment/Game/assets/clay.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/assets/deadzone.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/assets/gemblue.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/assets/gemgreen.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/assets/gempurple.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/assets/gemred.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/assets/gemshot.sfs
+Added : /students/adriaan.bosch/Solo Assignment/Game/assets/gemyellow.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/assets/playerbullet.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/assets/playership.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/assets/rock.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/assets/roof.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/assets/roofmove.sfs
+Added : /students/adriaan.bosch/Solo Assignment/Game/assets/wall.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/libpng16-16.dll
+Added : /students/adriaan.bosch/Solo Assignment/Game/zlib1.dll
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/.suo
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/Browse.VC.db
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch/AutoPCH
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch/AutoPCH/574aded3e39d0dc3
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch/AutoPCH/574aded3e39d0dc3/CLAY.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch/AutoPCH/7e9743c7e91777cf
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch/AutoPCH/7e9743c7e91777cf/BACKBUFFER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch/AutoPCH/a59b0effa0f07bbf
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch/AutoPCH/a59b0effa0f07bbf/BACKBUFFER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch/AutoPCH/e4f70424c516e30c
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch/AutoPCH/e4f70424c516e30c/SCORCES.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch/AutoPCH/e798683699c2d282
+Added : /students/adriaan.bosch/Solo Assignment/Source/.vs/Framework/v15/ipch/AutoPCH/e798683699c2d282/GAME.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/Framework.ilk
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/Framework.pdb
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/SDL2.dll
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/SDL2_image.dll
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/aimline.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/alienenemy.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/bubblepop.sfs
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/bubbleswitch.sfs
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/clay.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/deadzone.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/gemblue.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/gemgreen.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/gempurple.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/gemred.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/gemshot.sfs
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/gemyellow.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/playerbullet.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/playership.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/rock.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/roof.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/roofmove.sfs
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/assets/wall.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/libpng16-16.dll
+Added : /students/adriaan.bosch/Solo Assignment/Source/Debug/zlib1.dll
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.Build.CppClean.log
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.log
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.tlog/CL.command.1.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.tlog/CL.read.1.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.tlog/CL.write.1.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.tlog/Framework.lastbuildstate
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.tlog/link.command.1.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.tlog/link.read.1.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/Framework.tlog/link.write.1.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/vc141.idb
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Debug/vc141.pdb
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Framework.vcxproj
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Framework.vcxproj.filters
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Framework.vcxproj.user
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Release
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Release/Framework.log
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Release/Framework.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Release/Framework.tlog/CL.command.1.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Release/Framework.tlog/CL.read.1.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Release/Framework.tlog/CL.write.1.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Release/Framework.tlog/Framework.lastbuildstate
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Release/Framework.tlog/link.command.1.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Release/Framework.tlog/link.read.1.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Release/Framework.tlog/link.write.1.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Release/Framework.tlog/unsuccessfulbuild
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/Release/vc141.pdb
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/backbuffer.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/backbuffer.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/clay.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/clay.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/currentgem.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/currentgem.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/dynamite.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/dynamite.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/game.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/gameobject.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/gameobject.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/gem.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/gem.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/inputhandler.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/inputhandler.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/logmanager.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/logmanager.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/main.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/nextgem.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/nextgem.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/pickaxe.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/pickaxe.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/rock.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/rock.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/scorces.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/scorces.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/settings.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/settings.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/shootGem.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/shootGem.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/special.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/special.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/sprite.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/sprite.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/texture.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/texture.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/texturemanager.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework/texturemanager.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/Framework.sln
+Deleted : /students/adriaan.bosch/Solo Assignment/Source/GemShooter
+Added : /students/adriaan.bosch/Solo Assignment/Source/Release
+Added : /students/adriaan.bosch/Solo Assignment/Source/Release/assets
+Added : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/aimline.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/alienenemy.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/bubblepop.sfs
+Added : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/bubbleswitch.sfs
+Added : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/clay.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/deadzone.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/gemblue.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/gemgreen.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/gempurple.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/gemred.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/gemshot.sfs
+Added : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/gemyellow.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/playerbullet.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/playership.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/rock.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/roof.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/roofmove.sfs
+Added : /students/adriaan.bosch/Solo Assignment/Source/Release/assets/wall.png
+
+Revision: 379
+Author: wqr8015
+Date: Wednesday, 23 September 2020 4:01:38 PM
+Message:
+
+----
+Modified : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/.suo
+Modified : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/Browse.VC.db
+Deleted : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter
+
+Revision: 376
+Author: wqr8015
+Date: Wednesday, 23 September 2020 3:40:38 PM
+Message:
+worked on gem swapping, and the gem drawing issue which still isnt fixed, moved directory to fit with assignment directory setup
+----
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/.suo
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/Browse.VC.db
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter
+Modified : /students/adriaan.bosch/Solo Assignment/Docs/GDD - 1325168.docx
+Modified : /students/adriaan.bosch/Solo Assignment/Docs/TDD - 1325168.docx
+Deleted : /students/adriaan.bosch/Solo Assignment/Game/GemShooter
+Deleted : /students/adriaan.bosch/Solo Assignment/Gem Shooter
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/1615f8e66a94336b
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/1615f8e66a94336b/LOGMANAGER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/17c0c55fcca79937
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/17c0c55fcca79937/BACKBUFFER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/1884cf42a9499f62
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/1884cf42a9499f62/INPUTHANDLER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/24f636877506d137
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/24f636877506d137/BACKBUFFER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/28f4eb5b0c260f9b
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/28f4eb5b0c260f9b/LOGMANAGER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/48b004a170de7233
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/48b004a170de7233/DYNAMITE.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/4dc9bb8ed3db8c3
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/4dc9bb8ed3db8c3/TEXTURE.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/61f8b7b775243867
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/61f8b7b775243867/MAIN.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/622e6936ee0beb67
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/622e6936ee0beb67/BACKBUFFER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/62f8f87fb4e621d0
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/62f8f87fb4e621d0/TEXTUREMANAGER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/64ca88d44b2ca1ea
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/64ca88d44b2ca1ea/GAME.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/65deb74ae4610d13
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/65deb74ae4610d13/GEM.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/679c569335615a1
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/679c569335615a1/SETTINGS.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/69f097e75f2d83d7
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/69f097e75f2d83d7/MAIN.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/7753cd63a2923043
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/7753cd63a2923043/GEM.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/7e8a1db55aabf38f
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/7e8a1db55aabf38f/ENTITY.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/855376f65fe08474
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/855376f65fe08474/NEXTGEM.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/87658eade0026a01
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/87658eade0026a01/ROCK.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/8a35cc5a23a299d
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/8a35cc5a23a299d/SPRITE.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/93e4b3d82e67b7f4
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/93e4b3d82e67b7f4/SCORCES.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/962f396d75c1b77a
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/962f396d75c1b77a/GAME.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/99ef90e02475dec7
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/99ef90e02475dec7/MAIN.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/9faa0b8caedb66bc
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/9faa0b8caedb66bc/SHOOTGEM.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/a4d5a4486609f05d
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/a4d5a4486609f05d/PLAYERSHIP.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/c4a54199a68eedd2
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/c4a54199a68eedd2/INPUTHANDLER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/c50e2137b1ee8a57
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/c50e2137b1ee8a57/GAMEOBJECT.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/de8fb27a5d406aea
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/de8fb27a5d406aea/CURRENTGEM.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/de9833bdc126324d
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/de9833bdc126324d/SPRITE.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/e8a5bb439e2a049a
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/e8a5bb439e2a049a/CURRENTGEM.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/ee6a824e8a742e27
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/ee6a824e8a742e27/GAMEOBJECT.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/f2c13b6b07d1b815
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/f2c13b6b07d1b815/SPECIAL.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/fc195f2e8dbc6aab
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v15/ipch/AutoPCH/fc195f2e8dbc6aab/CLAY.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v16
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v16/.suo
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/Framework/v16/Browse.VC.db
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/.suo
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/Browse.VC.db
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/1cc6f5419afcd111
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/1cc6f5419afcd111/GAME.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/1e40a120a2d82550
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/1e40a120a2d82550/TEXTURE.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/1e865254fc00b780
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/1e865254fc00b780/GEMSHOOTER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/20e4cedd17356f9a
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/20e4cedd17356f9a/PICKAXE.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/589885855f33a556
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/589885855f33a556/SPRITE.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/5a324c5aeaf1d21c
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/5a324c5aeaf1d21c/BACKBUFFER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/5acad454413d3f27
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/5acad454413d3f27/SCORCES.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/6d35534a7e725bc6
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/6d35534a7e725bc6/SPECIAL.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/704328b5e8f9f9aa
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/704328b5e8f9f9aa/SETTINGS.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/84787c0e760367a0
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/84787c0e760367a0/GEM.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/8a52064de23ba240
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/8a52064de23ba240/CLAY.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/939c88233b33395b
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/939c88233b33395b/TEXTUREMANAGER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/9853429acd13b5f0
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/9853429acd13b5f0/LOGMANAGER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/b5158a2928262cd0
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/b5158a2928262cd0/GEMSHOOTER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/bf4def5b22337c0a
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/bf4def5b22337c0a/ROCK.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/c98987595b7da458
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/c98987595b7da458/DYNAMITE.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/d2a1f1e7fd16137
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/d2a1f1e7fd16137/NEXTGEM.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/d78e8dfc4d63599c
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/d78e8dfc4d63599c/GAMEOBJECT.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/e35625f8586bd8e1
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/e35625f8586bd8e1/CURRENTGEM.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/fa0091da095ed329
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/fa0091da095ed329/INPUTHANDLER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/Framework.ilk
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/Framework.pdb
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/SDL2.dll
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/SDL2_image.dll
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/assets
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/assets/aimline.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/assets/alienenemy.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/assets/bubblepop.sfs
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/assets/bubbleswitch.sfs
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/assets/clay.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/assets/deadzone.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/assets/gemblue.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/assets/gemgreen.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/assets/gempurple.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/assets/gemred.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/assets/gemshot.sfs
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/assets/gemyellow.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/assets/playerbullet.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/assets/playership.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/assets/rock.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/assets/roof.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/assets/roofmove.sfs
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/assets/wall.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/libpng16-16.dll
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/playership.png
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Debug/zlib1.dll
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/Debug
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/Debug/Framework.Build.CppClean.log
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/Debug/Framework.log
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/Debug/Framework.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/Debug/Framework.tlog/CL.command.1.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/Debug/Framework.tlog/CL.read.1.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/Debug/Framework.tlog/CL.write.1.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/Debug/Framework.tlog/Framework.lastbuildstate
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/Debug/Framework.tlog/link.command.1.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/Debug/Framework.tlog/link.read.1.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/Debug/Framework.tlog/link.write.1.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/Debug/vc141.idb
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/Debug/vc141.pdb
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/Framework.vcxproj
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/Framework.vcxproj.filters
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/Framework.vcxproj.user
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/backbuffer.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/backbuffer.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/clay.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/clay.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/currentgem.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/currentgem.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/dynamite.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/dynamite.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/game.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/game.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/gameobject.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/gameobject.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/gem.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/gem.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/inputhandler.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/inputhandler.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/logmanager.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/logmanager.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/main.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/nextgem.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/nextgem.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/pickaxe.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/pickaxe.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/rock.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/rock.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/scorces.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/scorces.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/settings.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/settings.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/shootGem.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/shootGem.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/special.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/special.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/sprite.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/sprite.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/texture.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/texture.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/texturemanager.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework/texturemanager.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/Framework.sln
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/Debug
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/Debug/GemShooter.Build.CppClean.log
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/Debug/GemShooter.log
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/Debug/GemShooter.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/Debug/GemShooter.tlog/unsuccessfulbuild
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/GemShooter.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/GemShooter.vcxproj
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/GemShooter.vcxproj.filters
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/GemShooter.vcxproj.user
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/backbuffer.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/backbuffer.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/clay.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/clay.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/currentgem.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/currentgem.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/dynamite.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/dynamite.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/game.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/game.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/gameobject.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/gameobject.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/gem.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/gem.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/inputhandler.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/inputhandler.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/logmanager.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/logmanager.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/nextgem.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/nextgem.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/pickaxe.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/pickaxe.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/rock.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/rock.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/scorces.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/scorces.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/settings.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/settings.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/special.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/special.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/sprite.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/sprite.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/texture.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/texture.h
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/texturemanager.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Source/GemShooter/GemShooter/texturemanager.h
+
+Revision: 328
+Author: wqr8015
+Date: Tuesday, 22 September 2020 12:05:26 PM
+Message:
+updated version of the game
+----
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/.suo
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/Browse.VC.db
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/1615f8e66a94336b
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/1615f8e66a94336b/LOGMANAGER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/17c0c55fcca79937
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/17c0c55fcca79937/BACKBUFFER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/1884cf42a9499f62
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/1884cf42a9499f62/INPUTHANDLER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/24f636877506d137
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/24f636877506d137/BACKBUFFER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/28f4eb5b0c260f9b
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/28f4eb5b0c260f9b/LOGMANAGER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/4dc9bb8ed3db8c3
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/4dc9bb8ed3db8c3/TEXTURE.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/61f8b7b775243867
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/61f8b7b775243867/MAIN.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/622e6936ee0beb67
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/622e6936ee0beb67/BACKBUFFER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/62f8f87fb4e621d0
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/62f8f87fb4e621d0/TEXTUREMANAGER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/64ca88d44b2ca1ea
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/64ca88d44b2ca1ea/GAME.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/65deb74ae4610d13
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/65deb74ae4610d13/GEM.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/679c569335615a1
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/679c569335615a1/SETTINGS.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/69f097e75f2d83d7
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/69f097e75f2d83d7/MAIN.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/7753cd63a2923043
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/7753cd63a2923043/GEM.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/7e8a1db55aabf38f
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/7e8a1db55aabf38f/ENTITY.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/855376f65fe08474
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/855376f65fe08474/NEXTGEM.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/87658eade0026a01
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/87658eade0026a01/ROCK.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/8a35cc5a23a299d
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/8a35cc5a23a299d/SPRITE.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/93e4b3d82e67b7f4
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/93e4b3d82e67b7f4/SCORCES.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/962f396d75c1b77a
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/962f396d75c1b77a/GAME.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/99ef90e02475dec7
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/99ef90e02475dec7/MAIN.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/9faa0b8caedb66bc
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/9faa0b8caedb66bc/SHOOTGEM.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/a4d5a4486609f05d
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/a4d5a4486609f05d/PLAYERSHIP.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/c4a54199a68eedd2
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/c4a54199a68eedd2/INPUTHANDLER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/c50e2137b1ee8a57
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/c50e2137b1ee8a57/GAMEOBJECT.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/de8fb27a5d406aea
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/de8fb27a5d406aea/CURRENTGEM.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/de9833bdc126324d
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/de9833bdc126324d/SPRITE.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/e8a5bb439e2a049a
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/e8a5bb439e2a049a/CURRENTGEM.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/ee6a824e8a742e27
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/ee6a824e8a742e27/GAMEOBJECT.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/f2c13b6b07d1b815
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/f2c13b6b07d1b815/SPECIAL.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/fc195f2e8dbc6aab
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v15/ipch/AutoPCH/fc195f2e8dbc6aab/CLAY.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v16
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v16/.suo
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/Framework/v16/Browse.VC.db
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/SDL2.dll
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/SDL2_image.dll
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/assets
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/assets/aimline.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/assets/alienenemy.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/assets/bubblepop.sfs
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/assets/bubbleswitch.sfs
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/assets/clay.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/assets/deadzone.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/assets/gemblue.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/assets/gemgreen.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/assets/gempurple.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/assets/gemred.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/assets/gemshot.sfs
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/assets/gemyellow.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/assets/playerbullet.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/assets/playership.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/assets/rock.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/assets/roof.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/assets/roofmove.sfs
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/assets/wall.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/libpng16-16.dll
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/playership.png
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug/zlib1.dll
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/Debug
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/Debug/Framework.log
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/Debug/Framework.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/Framework.vcxproj
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/Framework.vcxproj.filters
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/Framework.vcxproj.user
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/backbuffer.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/backbuffer.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/clay.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/clay.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/currentgem.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/currentgem.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/dynamite.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/dynamite.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/game.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/game.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/gameobject.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/gameobject.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/gem.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/gem.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/inputhandler.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/inputhandler.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/logmanager.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/logmanager.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/main.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/nextgem.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/nextgem.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/pickaxe.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/pickaxe.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/rock.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/rock.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/scorces.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/scorces.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/settings.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/settings.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/shootGem.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/shootGem.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/special.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/special.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/sprite.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/sprite.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/texture.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/texture.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/texturemanager.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework/texturemanager.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Framework.sln
+Modified : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15/.suo
+Modified : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15/Browse.VC.db
+Modified : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/.suo
+Modified : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/Browse.VC.db
+Modified : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/622e6936ee0beb67/BACKBUFFER.ipch
+Modified : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/64ca88d44b2ca1ea/GAME.ipch
+Modified : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/7e8a1db55aabf38f/ENTITY.ipch
+
+Revision: 271
+Author: wqr8015
+Date: Tuesday, 8 September 2020 11:03:05 AM
+Message:
+
+----
+Modified : /students/adriaan.bosch/Solo Assignment/Docs/TDD - 1325168.docx
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/Debug
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15/.suo
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15/Browse.VC.db
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/.suo
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/Browse.VC.db
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/622e6936ee0beb67
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/622e6936ee0beb67/BACKBUFFER.ipch
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/64ca88d44b2ca1ea
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/64ca88d44b2ca1ea/GAME.ipch
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/7e8a1db55aabf38f
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/7e8a1db55aabf38f/ENTITY.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/.suo
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/Browse.VC.db
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/1cc6f5419afcd111
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/1cc6f5419afcd111/GAME.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/1e40a120a2d82550
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/1e40a120a2d82550/TEXTURE.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/1e865254fc00b780
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/1e865254fc00b780/GEMSHOOTER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/20e4cedd17356f9a
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/20e4cedd17356f9a/PICKAXE.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/589885855f33a556
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/589885855f33a556/SPRITE.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/5a324c5aeaf1d21c
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/5a324c5aeaf1d21c/BACKBUFFER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/5acad454413d3f27
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/5acad454413d3f27/SCORCES.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/6d35534a7e725bc6
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/6d35534a7e725bc6/SPECIAL.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/704328b5e8f9f9aa
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/704328b5e8f9f9aa/SETTINGS.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/84787c0e760367a0
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/84787c0e760367a0/GEM.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/8a52064de23ba240
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/8a52064de23ba240/CLAY.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/939c88233b33395b
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/939c88233b33395b/TEXTUREMANAGER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/9853429acd13b5f0
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/9853429acd13b5f0/LOGMANAGER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/b5158a2928262cd0
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/b5158a2928262cd0/GEMSHOOTER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/bf4def5b22337c0a
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/bf4def5b22337c0a/ROCK.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/c98987595b7da458
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/c98987595b7da458/DYNAMITE.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/d2a1f1e7fd16137
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/d2a1f1e7fd16137/NEXTGEM.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/d78e8dfc4d63599c
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/d78e8dfc4d63599c/GAMEOBJECT.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/e35625f8586bd8e1
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/e35625f8586bd8e1/CURRENTGEM.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/fa0091da095ed329
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/.vs/GemShooter/v15/ipch/AutoPCH/fa0091da095ed329/INPUTHANDLER.ipch
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/Debug
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/Debug/GemShooter.Build.CppClean.log
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/Debug/GemShooter.log
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/Debug/GemShooter.tlog
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/Debug/GemShooter.tlog/unsuccessfulbuild
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/GemShooter.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/GemShooter.vcxproj
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/GemShooter.vcxproj.filters
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/GemShooter.vcxproj.user
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/backbuffer.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/backbuffer.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/clay.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/clay.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/currentgem.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/currentgem.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/dynamite.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/dynamite.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/game.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/game.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/gameobject.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/gameobject.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/gem.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/gem.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/inputhandler.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/inputhandler.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/logmanager.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/logmanager.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/nextgem.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/nextgem.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/pickaxe.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/pickaxe.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/rock.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/rock.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/scorces.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/scorces.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/settings.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/settings.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/special.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/special.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/sprite.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/sprite.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/texture.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/texture.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/texturemanager.cpp
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter/texturemanager.h
+Added : /students/adriaan.bosch/Solo Assignment/Game/GemShooter/GemShooter.sln
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15/ipch
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15/ipch/AutoPCH
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15/ipch/AutoPCH/3775cc4c1dc54135
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15/ipch/AutoPCH/3775cc4c1dc54135/SPRITE.ipch
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15/ipch/AutoPCH/718f3f70b998336b
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15/ipch/AutoPCH/718f3f70b998336b/TEXTURE.ipch
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15/ipch/AutoPCH/79c87df139e0a82f
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15/ipch/AutoPCH/79c87df139e0a82f/BACKBUFFER.ipch
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15/ipch/AutoPCH/c2025fe75b6058af
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15/ipch/AutoPCH/c2025fe75b6058af/MAIN.ipch
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15/ipch/AutoPCH/cb5c5c660c5d1dba
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15/ipch/AutoPCH/cb5c5c660c5d1dba/INPUTHANDLER.ipch
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15/ipch/AutoPCH/dccb9c62fdce1cb8
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15/ipch/AutoPCH/dccb9c62fdce1cb8/TEXTUREMANAGER.ipch
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15/ipch/AutoPCH/e38a7a19369c6b72
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/.vs/Framework/v15/ipch/AutoPCH/e38a7a19369c6b72/GAME.ipch
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Debug
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Debug/Framework.ilk
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Debug/Framework.pdb
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Debug/SDL2.dll
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Debug/SDL2_image.dll
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Debug/assets
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Debug/assets/alienenemy.png
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Debug/assets/playerbullet.png
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Debug/assets/playership.png
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Debug/libpng16-16.dll
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Debug/playership.png
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Debug/zlib1.dll
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/Debug
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/Debug/Framework.log
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/Debug/Framework.tlog
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/Debug/Framework.tlog/CL.command.1.tlog
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/Debug/Framework.tlog/CL.read.1.tlog
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/Debug/Framework.tlog/CL.write.1.tlog
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/Debug/Framework.tlog/Framework.lastbuildstate
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/Debug/Framework.tlog/link.command.1.tlog
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/Debug/Framework.tlog/link.read.1.tlog
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/Debug/Framework.tlog/link.write.1.tlog
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/Debug/vc141.idb
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/Debug/vc141.pdb
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/Framework.vcxproj
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/Framework.vcxproj.filters
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/Framework.vcxproj.user
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/backbuffer.cpp
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/backbuffer.h
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/entity.cpp
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/entity.h
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/game.cpp
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/game.h
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/inputhandler.cpp
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/inputhandler.h
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/logmanager.cpp
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/logmanager.h
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/main.cpp
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/sprite.cpp
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/sprite.h
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/texture.cpp
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/texture.h
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/texturemanager.cpp
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework/texturemanager.h
+Added : /students/adriaan.bosch/Week 2/GP2DFramework2020/Framework.sln
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/1615f8e66a94336b
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/1615f8e66a94336b/LOGMANAGER.ipch
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/4dc9bb8ed3db8c3
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/4dc9bb8ed3db8c3/TEXTURE.ipch
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/62f8f87fb4e621d0
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/62f8f87fb4e621d0/TEXTUREMANAGER.ipch
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/99ef90e02475dec7
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/99ef90e02475dec7/MAIN.ipch
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/a4d5a4486609f05d
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/a4d5a4486609f05d/PLAYERSHIP.ipch
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/c4a54199a68eedd2
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/c4a54199a68eedd2/INPUTHANDLER.ipch
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/de9833bdc126324d
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/.vs/Framework/v15/ipch/AutoPCH/de9833bdc126324d/SPRITE.ipch
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Debug
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Debug/Framework.ilk
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Debug/Framework.pdb
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Debug/SDL2.dll
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Debug/SDL2_image.dll
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Debug/assets
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Debug/assets/alienenemy.png
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Debug/assets/playerbullet.png
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Debug/assets/playership.png
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Debug/libpng16-16.dll
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Debug/playership.png
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Debug/zlib1.dll
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/Debug
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/Debug/Framework.Build.CppClean.log
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/Debug/Framework.log
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/Debug/Framework.tlog
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/Debug/Framework.tlog/CL.command.1.tlog
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/Debug/Framework.tlog/CL.read.1.tlog
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/Debug/Framework.tlog/CL.write.1.tlog
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/Debug/Framework.tlog/Framework.lastbuildstate
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/Debug/Framework.tlog/link.command.1.tlog
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/Debug/Framework.tlog/link.read.1.tlog
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/Debug/Framework.tlog/link.write.1.tlog
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/Debug/vc141.idb
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/Debug/vc141.pdb
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/Framework.vcxproj
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/Framework.vcxproj.filters
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/Framework.vcxproj.user
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/PlayerShip.cpp
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/PlayerShip.h
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/backbuffer.cpp
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/backbuffer.h
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/entity.cpp
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/entity.h
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/game.cpp
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/game.h
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/inputhandler.cpp
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/inputhandler.h
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/logmanager.cpp
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/logmanager.h
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/main.cpp
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/sprite.cpp
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/sprite.h
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/texture.cpp
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/texture.h
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/texturemanager.cpp
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework/texturemanager.h
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/Framework.sln
+Added : /students/adriaan.bosch/Week 2/SpaceInvaders/playership.png
+
+Revision: 224
+Author: wqr8015
+Date: Wednesday, 26 August 2020 6:11:24 PM
+Message:
+
+----
+Added : /students/adriaan.bosch/Solo Assignment/Game
+Added : /students/adriaan.bosch/Solo Assignment/Source
+Added : /students/adriaan.bosch/Solo Assignment/Docs
+Added : /students/adriaan.bosch/Solo Assignment/Docs/GDD - 1325168.docx
+Added : /students/adriaan.bosch/Solo Assignment/Docs/TDD - 1325168.docx
+Added : /students/adriaan.bosch/Solo Assignment/Gem Shooter
+Added : /students/adriaan.bosch/Solo Assignment/Docs/Pitch - 1325168.docx
+Added : /students/adriaan.bosch/Solo Assignment/Docs/SVN - 1325168.txt
+Added : /students/adriaan.bosch/Solo Assignment/Lib
+Added : /students/adriaan.bosch/Solo Assignment/Test
+
+Revision: 58
+Author: wqr8015
+Date: Sunday, 26 July 2020 10:08:43 PM
+Message:
+Folder creations
+----
+Added : /students/adriaan.bosch/Solo Assignment
+Added : /students/adriaan.bosch/Team Assignment
+Added : /students/adriaan.bosch/Week 1
+Added : /students/adriaan.bosch/Week 1/lab1
+Added : /students/adriaan.bosch/Week 1/lab2
+Added : /students/adriaan.bosch/Week 10
+Added : /students/adriaan.bosch/Week 10/lab1
+Added : /students/adriaan.bosch/Week 10/lab2
+Added : /students/adriaan.bosch/Week 11
+Added : /students/adriaan.bosch/Week 11/lab1
+Added : /students/adriaan.bosch/Week 11/lab2
+Added : /students/adriaan.bosch/Week 12
+Added : /students/adriaan.bosch/Week 12/lab1
+Added : /students/adriaan.bosch/Week 12/lab2
+Added : /students/adriaan.bosch/Week 2
+Added : /students/adriaan.bosch/Week 2/lab1
+Added : /students/adriaan.bosch/Week 2/lab2
+Added : /students/adriaan.bosch/Week 3
+Added : /students/adriaan.bosch/Week 3/lab1
+Added : /students/adriaan.bosch/Week 3/lab2
+Added : /students/adriaan.bosch/Week 4
+Added : /students/adriaan.bosch/Week 4/lab1
+Added : /students/adriaan.bosch/Week 4/lab2
+Added : /students/adriaan.bosch/Week 5
+Added : /students/adriaan.bosch/Week 5/lab1
+Added : /students/adriaan.bosch/Week 5/lab2
+Added : /students/adriaan.bosch/Week 6
+Added : /students/adriaan.bosch/Week 6/lab1
+Added : /students/adriaan.bosch/Week 6/lab2
+Added : /students/adriaan.bosch/Week 7
+Added : /students/adriaan.bosch/Week 7/lab1
+Added : /students/adriaan.bosch/Week 7/lab2
+Added : /students/adriaan.bosch/Week 8
+Added : /students/adriaan.bosch/Week 8/lab1
+Added : /students/adriaan.bosch/Week 8/lab2
+Added : /students/adriaan.bosch/Week 9
+Added : /students/adriaan.bosch/Week 9/lab1
+Added : /students/adriaan.bosch/Week 9/lab2
+
